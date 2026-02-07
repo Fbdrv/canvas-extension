@@ -1,0 +1,50 @@
+{
+  "manifest_version": 2,
+  "name": "Canvas Modules Presentation Downloader",
+  "description": "On Canvas course Modules pages, list presentation files in an overlay and download selected ones.",
+  "version": "0.1.0",
+  "permissions": [
+    "downloads",
+    "storage",
+    "tabs",
+    "*://*/courses/*/modules*",
+    "*://*/files/*",
+    "*://*/api/v1/*"
+  ],
+  "background": {
+    "scripts": [
+      "src/background/service_worker.js"
+    ],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*/courses/*/modules*"
+      ],
+      "js": [
+        "src/content/canvas_modules_parser.js",
+        "src/content/overlay.js",
+        "src/content/content.js"
+      ],
+      "css": [
+        "src/content/overlay.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "commands": {
+    "toggle-overlay": {
+      "suggested_key": {
+        "default": "Alt+Shift+P"
+      },
+      "description": "Toggle Canvas presentation downloader overlay"
+    }
+  },
+  "applications": {
+    "gecko": {
+      "id": "canvas-modules-downloader@example.com"
+    }
+  }
+}
+

@@ -1,0 +1,13 @@
+{
+  "name": "canvas-modules-presentation-downloader",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Firefox/Zen WebExtension to list and download presentation files from Canvas course Modules pages.",
+  "scripts": {
+    "lint": "echo \"No linter configured\"",
+    "build": "echo \"No build step required; load manifest.json directly as a temporary add-on.\"",
+    "dev": "npx web-ext run --source-dir .",
+    "dev:firefox": "npx web-ext run --source-dir . --firefox firefoxdeveloperedition"
+  }
+}
+
